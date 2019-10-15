@@ -17,14 +17,8 @@ const recipeSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  potion: {
-    name: {
-      type: String
-    },
-    effect: {
-      type: String
-    }
-  }
+  effect: String,
+  description: String
 }, {
   timestamps: true
 })

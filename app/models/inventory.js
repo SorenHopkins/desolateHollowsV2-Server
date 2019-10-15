@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 
 const inventorySchema = new mongoose.Schema({
-  potions: [String],
+  potions: [{type: mongoose.Schema.Types.ObjectId, ref: 'Recipe'}],
   ingredients:
     [
       {
