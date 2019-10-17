@@ -32,7 +32,8 @@ const inventorySeed = require('./inventorySeed/inventorySeed.js')
 // INDEX
 // GET /inventorys
 router.get('/inventorys', requireToken, (req, res, next) => {
-  inventory.find()
+  inventory.find({ owner: req.user.id })
+    .populate(inventory.potions)
     .then(inventorys => {
       // `inventorys` will be an array of Mongoose documents
       // we want to convert each one to a POJO, so we use `.map` to
@@ -61,48 +62,45 @@ router.get('/inventorys/:id', requireToken, (req, res, next) => {
 // POST /inventorys
 router.post('/inventorys', requireToken, (req, res, next) => {
   // set owner of new inventory to be current user
-  console.log(inventorySeed)
   const inventoryGenerate = inventorySeed
   inventoryGenerate.owner = req.user.id
 
-  inventory.find()
+  inventory.find({ owner: req.user.id }).populate('potions')
     .then(inventorys => {
-      if (inventorys) {
+      // if inventorys length != 0, just return the result of our get
+      if (inventorys.length) {
+        console.log(inventorys)
         const returnInventorys = inventorys.map(inventory => inventory.toObject())
-        res.status(200).json({ inventorys: returnInventorys })
+        return res.status(200).json({ inventorys: returnInventorys })
+        // else, create an inventory object from our template
       } else {
-        inventory.create(inventoryGenerate)
+        return inventory.create(inventoryGenerate)
       }
     }
     )
-    .then(inventory.find())
-    .then(inventorys => {
+    .then(() => inventory.find({ owner: req.user.id }).populate('potions'))
+    .then(goggle => {
       // `inventorys` will be an array of Mongoose documents
       // we want to convert each one to a POJO, so we use `.map` to
       // apply `.toObject` to each one
-      return inventorys.map(inventory => inventory.toObject())
+      console.log(goggle)
+      return goggle.map(inventory => inventory.toObject())
     })
     .then(inventorys => {
       res.status(200).json({ inventorys: inventorys })
     })
     .catch(next)
-//   inventory.create(inventoryGenerate)
-//     // respond to succesful `create` with status 201 and JSON of new "inventory"
-//     .then(inventory => {
-//       res.status(201).json({ inventory: inventory.toObject() })
-//     })
-//     // if an error occurs, pass it off to our error handler
-//     // the error handler needs the error message and the `res` object so that it
-//     // can send an error message back to the client
-//     .catch(next)
 })
 
 // UPDATE
 // PATCH /inventorys/5a7db6c74d55bc51bdf39793
-router.patch('/inventorys/:id', requireToken, removeBlanks, (req, res, next) => {
+router.patch('/inventorys/:id', requireToken, (req, res, next) => {
   // if the client attempts to change the `owner` property by including a new
   // owner, prevent that by deleting that key/value pair
   delete req.body.inventory.owner
+  delete req.body.inventory.id
+
+  // const potions = req.body.inventory.potions
 
   inventory.findById(req.params.id)
     .then(handle404)
@@ -112,15 +110,49 @@ router.patch('/inventorys/:id', requireToken, removeBlanks, (req, res, next) => 
       requireOwnership(req, inventory)
 
       // pass the result of Mongoose's `.update` to the next `.then`
-      inventory.updateOne(req.body.inventory)
+      return inventory.set(req.body.inventory).save()
     })
     // if that succeeded, get the Inventory back toi return
-    .then(data => inventory.find())
+    .then(data => {
+      console.log(data)
+      return inventory.find({ owner: req.user.id }).populate('potions')
+    })
     .then(inventorys => {
       // `inventorys` will be an array of Mongoose documents
       // we want to convert each one to a POJO, so we use `.map` to
       // apply `.toObject` to each one
-      console.log(inventorys)
+      return inventorys.map(inventory => inventory.toObject())
+    })
+    .then(inventorys => {
+      res.status(200).json({ inventorys: inventorys })
+    })
+    // if an error occurs, pass it to the handler
+    .catch(next)
+})
+
+router.patch('/ingredients/:id/', requireToken, removeBlanks, (req, res, next) => {
+  // if the client attempts to change the `owner` property by including a new
+  // owner, prevent that by deleting that key/value pair
+  delete req.body.inventorys.owner
+
+  inventory.findById(req.params.id)
+    .then(handle404)
+    .then(inventory => {
+      // pass the `req` object and the Mongoose record to `requireOwnership`
+      // it will throw an error if the current user isn't the owner
+      requireOwnership(req, inventory)
+
+      // pass the result of Mongoose's `.update` to the next `.then`
+      inventory.updateOne(req.body.inventorys)
+    })
+    // if that succeeded, get the Inventory back toi return
+    .then(data => {
+      return inventory.find({ owner: req.user.id })
+    })
+    .then(inventorys => {
+      // `inventorys` will be an array of Mongoose documents
+      // we want to convert each one to a POJO, so we use `.map` to
+      // apply `.toObject` to each one
       return inventorys.map(inventory => inventory.toObject())
     })
     .then(inventorys => {

@@ -45,7 +45,8 @@ router.get('/recipes', (req, res, next) => {
 
 // SHOW
 // GET /recipes/5a7db6c74d55bc51bdf39793
-router.get('/recipes/checkMatch', (req, res, next) => {
+router.post('/recipes/checkMatch', (req, res, next) => {
+  console.log(req.body)
   // req.params.id will be set based on the `:id` in the route
   recipe.find({ingredient1: req.body.ingredient.ingredient1, ingredient2: req.body.ingredient.ingredient2, ingredient3: req.body.ingredient.ingredient3})
     .then(handle404)
