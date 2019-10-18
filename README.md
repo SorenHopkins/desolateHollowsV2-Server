@@ -41,9 +41,9 @@ for the user. Aiming for ambiance & a calming puzzle experience.
 
 | Resource | Route | Action |
 |---|---|---|
-| Inventory  | /hangouts | Get (index) |
-| Inventory  | /hangouts/:id  | Update |
-| Inventory  | /hangouts  | Post |
+| Inventory  | /inventorys | Get (index) |
+| Inventory  | /inventorys/:id  | Update |
+| Inventory  | /inventorys  | Post |
 | Recipe  | /recipe/checkMatch | Post  |
 
 ### Front-end Repository
