@@ -5,7 +5,7 @@ items in order to match saved recipes. Uses a customized backend express templat
 to hold information about the various recipes, and to create a save game state
 for the user. Aiming for ambiance & a calming puzzle experience.
 
-![Screenshot(https://imgur.com/QkwPC49)](https://imgur.com)
+[Imgur](https://i.imgur.com/QkwPC49.png)
 
 ### Links for SEI 04 Full Stack Project
 
