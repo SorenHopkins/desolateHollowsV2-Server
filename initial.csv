@@ -1,6 +1,16 @@
 name,ingredient1,ingredient2,ingredient3,effect,description
-Whitepink Concoction,Drop of Honey,Holy Water,Snake Tongues,Unicorn Horn,+ACI-A white potion with pink bubbles. It rattles on the table, as if about to set into a gallop.+ACI-
-Eight Eye Potion,Bat Wings,Eye of Newt,Frog Legs,Spider+IBk-s Web,A black potion filled with eight newt eyes. A dark smoke rises from the surface.
+Whitepink Concoction,Drop of Honey,Holy Water,Snake Tongues,Unicorn Horn,A white potion with pink bubbles. It rattles on the table as if about to set into a gallop.
+Eight Eye Potion,Bat Wings,Eye of Newt,Frog Legs,Spider Web,A black potion filled with eight newt eyes. A dark smoke rises from the surface.
 Groundboiler Brew,Fine Clay,Nightshade,Snake Tongues,Mandrake Root,A rough brown potion that rumbles in place. Bits bubble over and drip off the side.
 Growing Potion,Fine Clay,Holy Water,Unicorn Horn,Small Seed,A dark green potion in which bits of saturated dirt float. The wood around it is sprouting leaves.
 Lovely White Draught,Holy Water,Small Seed,Unicorn Horn,White Rose,+ACI-A frosty white+AC0-blue potion. Small slivers of ice float around inside, but it feels warm.+ACI-
+Hissing Bowl,Drop of Honey,Mandrake Root,Snake Tongues,Cat Hair,A shallow stone bowl filled with grey liquid. Bits of mandrake are yowling inside.
+Latticed Mixture,Cat Hair,Bat Wings,Spider+IBk-s Web,Owl Feather,An orange mixture. White mesh boils from the surface. It almost looks like cotton candy.
+Jingling Philter,Bat Wings,Drop of Honey,Nightshade,Mistletoe Ash,A festive green+AC0-and+AC0-red mixture. It jingles like a bell when moved from side to side.
+Sticky Elixir,Drop of Honey,Mandrake Root,Mistletoe Ash,Sweet Toffee,A purple potion that is so thick that it almost won+IBk-t come out of the bottle.
+Shining Jar,Fine Clay,Small Seed,Sweet Toffee,Green Apple,A jar filled with light blue liquid that shines with a soft light. The seed inside is taking root.
+Seeking Tonic,Bat Wings,Owl Feather,Eye of Newt,Caterpillar Cocoon,A ghostly red potion. Shapes inside move like predators waiting to be released.
+Burning Dedoction,Bat Wings,Caterpillar Cocoon,Owl Feather,Pheonix Eggshell,A spotted beige potion that resembles nothing less than an egg in potion bottle form. It burns to touch.
+Lovely Red Draught,Holy Water,Pheonix Eggshell,Small Seed,Red Rose,+ACI-A hot burgundy potion. Small burnt slivers float inside, sharp as knives.+ACI-
+Lovely Black Draught,Holy Water,Red Rose,White Rose,Black Rose,A soft black potion. Bits of ice and burnt thorns drift around inside. They dance around each other.
+Bounteous Bouquet Potion,Black Rose,Red Rose,White Rose,Dragon Scale,A transparent potion. Rose petals of all three colors are encased inside.

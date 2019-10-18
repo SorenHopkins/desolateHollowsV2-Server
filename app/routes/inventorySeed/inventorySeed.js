@@ -107,7 +107,7 @@ const inventory = {
       available: false
     },
     {
-      name: "Spider's web",
+      name: 'Spider Web',
       description: 'Side benefit: a lot fewer bugs in your Hollow.',
       available: false
     },
