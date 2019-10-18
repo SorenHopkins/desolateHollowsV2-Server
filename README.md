@@ -5,7 +5,7 @@ items in order to match saved recipes. Uses a customized backend express templat
 to hold information about the various recipes, and to create a save game state
 for the user. Aiming for ambiance & a calming puzzle experience.
 
-![Screenshot](https://imgur.com/QkwPC49)
+![Screenshot(https://imgur.com/QkwPC49)](https://imgur.com)
 
 ### Links for SEI 04 Full Stack Project
 
@@ -49,7 +49,7 @@ for the user. Aiming for ambiance & a calming puzzle experience.
 ### Front-end Repository
 * Did not create wireframes before beginning, which created problems!
 * Created the following wireframe partways through development:
-![Wireframe](https://imgur.com/LXFbeYU)
+![Wireframe(https://imgur.com/LXFbeYU)](https://imgur.com)
 
 ### User Stories:
 * As a user I would like to select ingredients to use
